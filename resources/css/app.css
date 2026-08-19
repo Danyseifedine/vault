@@ -1,0 +1,209 @@
+@import 'tailwindcss';
+
+@import 'tw-animate-css';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --font-sans:
+        'Geist', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-mono:
+        'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        monospace;
+
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+
+    /* ── The Vault design tokens ───────────────────────────── */
+    --color-shell: var(--shell);
+    --color-panel: var(--panel);
+    --color-panel-2: var(--panel-2);
+    --color-panel-3: var(--panel-3);
+    --color-line: var(--line);
+    --color-line-2: var(--line-2);
+    --color-fg: var(--fg);
+    --color-fg-2: var(--fg-2);
+    --color-fg-3: var(--fg-3);
+    --color-primary-soft: var(--primary-soft);
+    --color-crit: var(--crit);
+    --color-crit-soft: var(--crit-soft);
+    --color-crit-foreground: var(--crit-foreground);
+    --color-sens: var(--sens);
+    --color-sens-soft: var(--sens-soft);
+    --color-pub: var(--pub);
+    --color-pub-soft: var(--pub-soft);
+}
+
+/* ── Light theme ─────────────────────────────────────────── */
+:root {
+    --shell: #f7f7f8;
+    --panel: #fbfbfc;
+    --panel-2: #f4f4f6;
+    --panel-3: #ebebee;
+    --line: #e7e7ea;
+    --line-2: #dcdce0;
+    --fg: #17171a;
+    --fg-2: #62666d;
+    --fg-3: #8b9098;
+    --primary-soft: rgba(11, 138, 128, 0.11);
+    --crit: #c9393e;
+    --crit-soft: rgba(201, 57, 62, 0.09);
+    /* Text/icon on a filled critical (red) surface - legible on that red in
+       both themes, so it is defined once and not redefined under .dark. */
+    --crit-foreground: #ffffff;
+    --sens: #b0740f;
+    --sens-soft: rgba(176, 116, 15, 0.1);
+    --pub: #1d8a5f;
+    --pub-soft: rgba(29, 138, 95, 0.09);
+    --shadow-panel: 0 24px 60px -16px rgba(16, 20, 26, 0.18);
+
+    --background: #ffffff;
+    --foreground: var(--fg);
+    --card: var(--panel);
+    --card-foreground: var(--fg);
+    --popover: var(--panel);
+    --popover-foreground: var(--fg);
+    --primary: #0b8a80;
+    --primary-foreground: #ffffff;
+    --secondary: var(--panel-2);
+    --secondary-foreground: var(--fg);
+    --muted: var(--panel-2);
+    --muted-foreground: var(--fg-2);
+    --accent: var(--panel-2);
+    --accent-foreground: var(--fg);
+    --destructive: var(--crit);
+    --destructive-foreground: #ffffff;
+    --border: var(--line);
+    --input: var(--line-2);
+    --ring: #0b8a80;
+    --chart-1: #0b8a80;
+    --chart-2: #c9393e;
+    --chart-3: #b0740f;
+    --chart-4: #1d8a5f;
+    --chart-5: #62666d;
+    --radius: 0.5rem;
+    --sidebar: var(--shell);
+    --sidebar-foreground: var(--fg);
+    --sidebar-primary: #0b8a80;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: var(--panel-2);
+    --sidebar-accent-foreground: var(--fg);
+    --sidebar-border: var(--line);
+    --sidebar-ring: #0b8a80;
+}
+
+/* ── Dark theme (design default) ─────────────────────────── */
+.dark {
+    --shell: #0a0a0b;
+    --panel: #16161a;
+    --panel-2: #1b1b20;
+    --panel-3: #23232a;
+    --line: #212126;
+    --line-2: #2c2c33;
+    --fg: #ededf0;
+    --fg-2: #8a8f98;
+    --fg-3: #5f636b;
+    --primary-soft: rgba(20, 194, 180, 0.16);
+    --crit: #eb5757;
+    --crit-soft: rgba(235, 87, 87, 0.15);
+    --sens: #e2a33c;
+    --sens-soft: rgba(226, 163, 60, 0.15);
+    --pub: #4cb782;
+    --pub-soft: rgba(76, 183, 130, 0.15);
+    --shadow-panel: 0 24px 60px -12px rgba(0, 0, 0, 0.7);
+
+    --background: #0e0e10;
+    --foreground: var(--fg);
+    --card: var(--panel);
+    --card-foreground: var(--fg);
+    --popover: var(--panel);
+    --popover-foreground: var(--fg);
+    --primary: #14c2b4;
+    --primary-foreground: #04231f;
+    --secondary: var(--panel-2);
+    --secondary-foreground: var(--fg);
+    --muted: var(--panel-2);
+    --muted-foreground: var(--fg-2);
+    --accent: var(--panel-2);
+    --accent-foreground: var(--fg);
+    --destructive: var(--crit);
+    --destructive-foreground: #ffffff;
+    --border: var(--line);
+    --input: var(--line-2);
+    --ring: #14c2b4;
+    --chart-1: #14c2b4;
+    --chart-2: #eb5757;
+    --chart-3: #e2a33c;
+    --chart-4: #4cb782;
+    --chart-5: #8a8f98;
+    --sidebar: var(--shell);
+    --sidebar-foreground: var(--fg);
+    --sidebar-primary: #14c2b4;
+    --sidebar-primary-foreground: #04231f;
+    --sidebar-accent: var(--panel-2);
+    --sidebar-accent-foreground: var(--fg);
+    --sidebar-border: var(--line);
+    --sidebar-ring: #14c2b4;
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+
+    ::selection {
+        background: var(--primary-soft);
+    }
+}

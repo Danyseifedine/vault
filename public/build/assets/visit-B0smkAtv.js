@@ -1,0 +1,1 @@
+import{On as e}from"./app-DmYZSmD9.js";var t=t=>({preserveScroll:!0,onSuccess:()=>e.success(t),onError:t=>e.error(Object.values(t)[0]??`That was refused.`)});export{t};

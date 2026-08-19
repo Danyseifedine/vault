@@ -1,0 +1,1 @@
+function e(e){return Array.from(e)[0]??``}function t(){return n}function n(t){let n=t.trim().split(/\s+/u).filter(Boolean);return n.length===0?``:n.length===1?e(n[0]).toUpperCase():`${e(n[0])}${e(n[n.length-1])}`.toUpperCase()}export{t};
